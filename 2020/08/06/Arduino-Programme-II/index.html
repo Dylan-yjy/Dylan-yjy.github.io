@@ -5,20 +5,25 @@
   
 
   
-  <title>Learning experience of the python | Hexo</title>
+  <title>Arduino Programme II | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="​        I started learning python about a month ago. The learning experience of basics of the software Visual Basic which is taught in the school makes me feel quite familiar with the grammar and the">
+  <meta name="description" content="We have done three small programmes during our second class. (i).  Firstly, we tried to make the equipment which would be able to displace the automatic light we use to light up the way we walk at the">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Learning experience of the python">
-<meta property="og:url" content="http://yoursite.com/2020/05/24/Learning-experience-of-the-python/index.html">
+<meta property="og:title" content="Arduino Programme II">
+<meta property="og:url" content="http://yoursite.com/2020/08/06/Arduino-Programme-II/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="​        I started learning python about a month ago. The learning experience of basics of the software Visual Basic which is taught in the school makes me feel quite familiar with the grammar and the">
+<meta property="og:description" content="We have done three small programmes during our second class. (i).  Firstly, we tried to make the equipment which would be able to displace the automatic light we use to light up the way we walk at the">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-24T10:34:58.000Z">
-<meta property="article:modified_time" content="2020-07-24T15:23:33.979Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/06/acBQUK.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/06/acBuHx.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/06/acB3CD.md.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/06/acBnD1.md.png">
+<meta property="article:published_time" content="2020-08-06T03:37:23.000Z">
+<meta property="article:modified_time" content="2020-08-06T03:42:12.405Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Learning">
+<meta property="article:tag" content="Arduino Programme">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/06/acBQUK.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -67,10 +72,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Learning-experience-of-the-python" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Arduino-Programme-II" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/05/24/Learning-experience-of-the-python/" class="article-date">
-  <time datetime="2020-05-24T10:34:58.000Z" itemprop="datePublished">2020-05-24</time>
+    <a href="/2020/08/06/Arduino-Programme-II/" class="article-date">
+  <time datetime="2020-08-06T03:37:23.000Z" itemprop="datePublished">2020-08-06</time>
 </a>
     
   </div>
@@ -81,7 +86,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Learning experience of the python
+      Arduino Programme II
     </h1>
   
 
@@ -89,19 +94,77 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​        I started learning python about a month ago. The learning experience of basics of the software Visual Basic which is taught in the school makes me feel quite familiar with the grammar and the type of variables. To make the program more clearly and easier to run the program without checking it again and again we choose to use Jupyter Notebook to done the program.</p>
-<p>​        Python is one of the most common computer languages. It has been used in many different areas, for example, the GUI development, some simple Program compilation and the scientific calculation. I want to do some data analysis by using the language and the python is the most suitable for me who is a green hand in the computer language learning. It would take me least time to done the most work when doing data analysis by using the python.</p>
-<p>​        I found that the computer language learning is an interesting process, I could do some simple program during each period of learning. I was able to find out my progress by writing the program with more complex and longer logic. For example, I wrote a small process which set the Username and Password. At first, if you typed in wrong username or password, the program needed to be restarted and type in all the data again. While, through some learning you would able to type in your username wrongly, you would be asked to type it again, so do the password. If you have typed in wrong username or password for over 5 times you are unable to try again and not allowed entering the website. </p>
-<p>​        Some interesting programs may be followed if it is possible.</p>
-<p>​        Thank you for watching my blog.</p>
+        <p>We have done three small programmes during our second class.</p>
+<p>(i).  Firstly, we tried to make the equipment which would be able to displace the automatic light we use to light up the way we walk at the night.</p>
+<p><strong>An infrared sensor was used in the equipment as a core component.</strong></p>
+<p><a href="https://imgchr.com/i/acBQUK" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/06/acBQUK.png" alt="acBQUK.png"></a></p>
+<p><strong>We design the code as below</strong></p>
+<p>void setup() {</p>
+<p>// initialize digital pin LED_BUILTIN as an output.</p>
+<p>pinMode(8, OUTPUT);</p>
+<p>pinMode(7, INPUT);</p>
+<p>}</p>
+<p>// the loop function runs over and over again forever</p>
+<p>void loop() {</p>
+<p>if(digitalRead(7)){</p>
+<p>digitalWrite(8, HIGH); // turn the LED on (HIGH is the voltage level)</p>
+<p>}</p>
+<p>else{</p>
+<p>digitalWrite(8, LOW); // turn the LED off by making the voltage LOW</p>
+<p>When there is someone passes by the sensor the sensor will considered the signal as “1” and higher the voltage of the light to make it light up.</p>
+<p>(ii). The second design we make has almost the same route to use in our daily life. However, we use a sound senor instead.</p>
+<p>A sound sensor is shown below</p>
+<p> <a href="https://imgchr.com/i/acBuHx" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/06/acBuHx.png" alt="acBuHx.png"></a></p>
+<p><strong>We used almost the same code as the infrared sensor</strong> </p>
+<p>void setup() {</p>
+<p>// initialize digital pin LED_BUILTIN as an output.</p>
+<p>pinMode(8, OUTPUT);</p>
+<p>pinMode(7, INPUT);</p>
+<p>}</p>
+<p>// the loop function runs over and over again forever</p>
+<p>void loop() {</p>
+<p>if(digitalRead(7)){</p>
+<p>digitalWrite(8, HIGH); // turn the LED on (HIGH is the voltage level)</p>
+<p><strong>delay(3000)</strong></p>
+<p>}</p>
+<p>else{</p>
+<p>digitalWrite(8, LOW); // turn the LED off by making the voltage LOW</p>
+<p>However, “delay” was added in the code to ensure the light will maintain bright enough for 3 seconds (3000 means 3000 milliseconds)</p>
+<p>(iii). Finally, we use temperature sensor to simulate the computer cooling fan.</p>
+<p>Here shows the equipment I have made below</p>
+<p><a href="https://imgchr.com/i/acB3CD" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/06/acB3CD.md.jpg" alt="acB3CD.md.jpg"></a></p>
+<p>#include&lt;OneWire.h&gt;</p>
+<p>#include&lt;DallasTemperature.h&gt;</p>
+<p>#define BUS 7</p>
+<p>OneWire onewire(BUS);</p>
+<p>DallasTemperature senors(&amp;onewire);</p>
+<p>void setup(){</p>
+<p> // put your setup code here, to run once:</p>
+<p> Serial.begin(9600);</p>
+<p> senors.begin();</p>
+<p> pinMode(8,OUTPUT);</p>
+<p>}</p>
+<p>void loop(){</p>
+<p> // put your main code here, to run repeatedly:</p>
+<p> senors.requestTemperatures();</p>
+<p> Serial.write(“温度：”);</p>
+<p> Serial.print(senors.getTempCByIndex(0));</p>
+<p> Serial.println(“摄氏度”);</p>
+<p> digitalWrite(8,LOW);</p>
+<p> if (senors.getTempCByIndex(0)&gt;34){</p>
+<p>  digitalWrite(8,HIGH);</p>
+<p> }</p>
+<p> }</p>
+<p>Here are some photos of testing the temperature sensor</p>
+<p><a href="https://imgchr.com/i/acBnD1" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/06/acBnD1.md.png" alt="acBnD1.md.png"></a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/05/24/Learning-experience-of-the-python/" data-id="ckakxiez20000g8an6s8adywi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/06/Arduino-Programme-II/" data-id="ckdi98arx0000h0an6cvthvz8" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Learning/" rel="tag">Learning</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino-Programme/" rel="tag">Arduino Programme</a></li></ul>
 
     </footer>
   </div>
@@ -109,19 +172,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/05/31/A-small-challenge/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          A small challenge
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/19/Learning-about-the-major/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/08/03/Arduino-Programme-I-Introduction/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Learning about the major</div>
+      <div class="article-nav-title">Arduino Programme I (Introduction)</div>
     </a>
   
 </nav>
