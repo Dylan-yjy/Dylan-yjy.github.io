@@ -64,6 +64,140 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Arduino-Programme-III" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/08/Arduino-Programme-III/" class="article-date">
+  <time datetime="2020-08-08T10:30:49.000Z" itemprop="datePublished">2020-08-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/08/Arduino-Programme-III/">Arduino Programme III</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>This time, a new unit which is a button was added into our input module and used to control the 1 or 0 signal by using your finger.</p>
+<p><strong>We have written some simple code to make the button able to control the LED light.</strong></p>
+<p><a href="https://imgchr.com/i/aI8zKH" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/08/aI8zKH.md.jpg" alt="aI8zKH.md.jpg"></a><br><a href="https://imgchr.com/i/aI8X8O" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/08/aI8X8O.md.jpg" alt="aI8X8O.md.jpg"></a></p>
+<p>#define LED 8</p>
+<p>#define KEY 7</p>
+<p>void setup() {</p>
+<p> pinMode(LED,OUTPUT);</p>
+<p> pinMode(KEY,INPUT);</p>
+<p>}</p>
+<p>}</p>
+<p>void loop() {</p>
+<p> digitalWrite(LED,LOW);</p>
+<p> if(!digitalRead(KEY)){</p>
+<p>  digitalWrite(LED,HIGH);</p>
+<p> }</p>
+<p> else{</p>
+<p>  digitalWrite(LED,LOW);</p>
+<p> }</p>
+<p>}</p>
+<p>Then, we try to use the button unit to control the buzzer.</p>
+<p><a href="https://imgchr.com/i/aI8vxe" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/08/aI8vxe.md.jpg" alt="aI8vxe.md.jpg"></a></p>
+<p>It is interested that there is a seal for the speaker for the buzzer and teacher told us not to open it in order to control the volume of the buzzer. The teacher just opened part of the seal to show us, how loud the buzzer is. Wow, it is just like the sound of the emergency alarm.</p>
+<p><strong>The code we designed is shown below</strong></p>
+<p>#define BUZZ 8</p>
+<p>#define KEY 7</p>
+<p>void setup() {</p>
+<p> pinMode(BUZZ,OUTPUT);</p>
+<p> pinMode(KEY,INPUT);</p>
+<p>}</p>
+<p>void buzz(int times){</p>
+<p> digitalWrite(BUZZ,LOW);</p>
+<p> delay(times);</p>
+<p> digitalWrite(BUZZ,HIGH);</p>
+<p> delay(times);</p>
+<p>}</p>
+<p>void loop() {</p>
+<p> digitalWrite(BUZZ,LOW);</p>
+<p> if(!digitalRead(KEY)){</p>
+<p>  digitalWrite(BUZZ,HIGH);</p>
+<p> }</p>
+<p> else{</p>
+<p>  digitalWrite(BUZZ,LOW);</p>
+<p> }</p>
+<p>}</p>
+<p>At final part of the class, we explore and try to finish a devices which would be able to act as the car parking radar.</p>
+<p><a href="https://imgchr.com/i/aIGSrd" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/08/aIGSrd.md.jpg" alt="aIGSrd.md.jpg"></a></p>
+<p>Here also shows the testing data of my ultrasonic wave sensor.</p>
+<p><a href="https://imgchr.com/i/aI8q56" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/08/aI8q56.md.png" alt="aI8q56.md.png"></a></p>
+<p><strong>We use code below to run the car parking radar programme</strong></p>
+<p>int BUZZ = 8;</p>
+<p>int Trig = 2;</p>
+<p>int Echo = 3;</p>
+<p>int dm;</p>
+<p>float cm;</p>
+<p>float temp;</p>
+<p>void setup() {</p>
+<p> Serial.begin(9600);</p>
+<p> pinMode(Trig,OUTPUT);</p>
+<p> pinMode(Echo,INPUT);</p>
+<p> pinMode(BUZZ,OUTPUT);</p>
+<p>}</p>
+<p>void buzzer(int times){</p>
+<p> digitalWrite(BUZZ,HIGH);</p>
+<p> delay(times);</p>
+<p> digitalWrite(BUZZ,LOW);</p>
+<p> delay(times);</p>
+<p>}</p>
+<p>void loop() {</p>
+<p> digitalWrite(Trig,LOW);</p>
+<p> delay(2);</p>
+<p> digitalWrite(Trig,HIGH);</p>
+<p> delay(10);</p>
+<p> digitalWrite(Trig,LOW);</p>
+<p> temp = float(pulseIn(Echo,HIGH));</p>
+<p> cm = (temp*17)/1000;</p>
+<p> dm = int(cm)/10%10;</p>
+<p> switch (dm){</p>
+<p>  case 0:</p>
+<p>   buzzer(5);</p>
+<p>   break;</p>
+<p>  case 1:</p>
+<p>   buzzer(100);</p>
+<p>   break;</p>
+<p>  case 2:</p>
+<p>   buzzer(200);</p>
+<p>   break;</p>
+<p>  case 3:</p>
+<p>   buzzer(300);</p>
+<p>   break;</p>
+<p>  case 4:</p>
+<p>   buzzer(400);</p>
+<p>   break;</p>
+<p>  default:</p>
+<p>​    digitalWrite(BUZZ,HIGH);   </p>
+<p> }</p>
+<p>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/08/Arduino-Programme-III/" data-id="ckdliyocc00005sanblgk544c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino-Programme/" rel="tag">Arduino Programme</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Arduino-Programme-II" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/08/06/Arduino-Programme-II/" class="article-date">
@@ -564,7 +698,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Academic-research/" style="font-size: 20px;">Academic research</a> <a href="/tags/Arduino-Programme/" style="font-size: 20px;">Arduino Programme</a> <a href="/tags/Experience/" style="font-size: 10px;">Experience</a> <a href="/tags/Learning/" style="font-size: 20px;">Learning</a> <a href="/tags/Reading-Seminar/" style="font-size: 10px;">Reading Seminar</a>
+      <a href="/tags/Academic-research/" style="font-size: 15px;">Academic research</a> <a href="/tags/Arduino-Programme/" style="font-size: 20px;">Arduino Programme</a> <a href="/tags/Experience/" style="font-size: 10px;">Experience</a> <a href="/tags/Learning/" style="font-size: 15px;">Learning</a> <a href="/tags/Reading-Seminar/" style="font-size: 10px;">Reading Seminar</a>
     </div>
   </div>
 
@@ -586,6 +720,10 @@
       <ul>
         
           <li>
+            <a href="/2020/08/08/Arduino-Programme-III/">Arduino Programme III</a>
+          </li>
+        
+          <li>
             <a href="/2020/08/06/Arduino-Programme-II/">Arduino Programme II</a>
           </li>
         
@@ -599,10 +737,6 @@
         
           <li>
             <a href="/2020/07/12/Eiffel-Tower/">Eiffel Tower</a>
-          </li>
-        
-          <li>
-            <a href="/2020/07/05/Connection-between-Economic-and-IELTS-writing/">Connection between Economic and IELTS writing</a>
           </li>
         
       </ul>
