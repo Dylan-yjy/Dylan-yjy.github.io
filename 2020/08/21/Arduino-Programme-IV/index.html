@@ -5,20 +5,23 @@
   
 
   
-  <title>Eiffel Tower | Hexo</title>
+  <title>Arduino Programme IV | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="​        Eiffel Tower is the landmark of the Paris or even France. It is used to be the world’s tallest building which is up to 324 metres in its height. It is named after the famous French architect">
+  <meta name="description" content="We focused on the application of the display LED screen for this time’s Arduino design. First of all, we using display screen to show the data which is measured by the ultrasonic wave sensor  We use c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Eiffel Tower">
-<meta property="og:url" content="http://yoursite.com/2020/07/12/Eiffel-Tower/index.html">
+<meta property="og:title" content="Arduino Programme IV">
+<meta property="og:url" content="http://yoursite.com/2020/08/21/Arduino-Programme-IV/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="​        Eiffel Tower is the landmark of the Paris or even France. It is used to be the world’s tallest building which is up to 324 metres in its height. It is named after the famous French architect">
+<meta property="og:description" content="We focused on the application of the display LED screen for this time’s Arduino design. First of all, we using display screen to show the data which is measured by the ultrasonic wave sensor  We use c">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-07-12T03:41:09.000Z">
-<meta property="article:modified_time" content="2020-07-24T15:18:10.816Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/21/dNMLuR.md.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/21/dNMbv9.md.jpg">
+<meta property="article:published_time" content="2020-08-21T10:53:21.000Z">
+<meta property="article:modified_time" content="2020-08-21T10:56:38.756Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Academic research">
+<meta property="article:tag" content="Arduino Programme">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/21/dNMLuR.md.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -67,10 +70,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Eiffel-Tower" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Arduino-Programme-IV" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/07/12/Eiffel-Tower/" class="article-date">
-  <time datetime="2020-07-12T03:41:09.000Z" itemprop="datePublished">2020-07-12</time>
+    <a href="/2020/08/21/Arduino-Programme-IV/" class="article-date">
+  <time datetime="2020-08-21T10:53:21.000Z" itemprop="datePublished">2020-08-21</time>
 </a>
     
   </div>
@@ -81,7 +84,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Eiffel Tower
+      Arduino Programme IV
     </h1>
   
 
@@ -89,19 +92,76 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>​        Eiffel Tower is the landmark of the Paris or even France. It is used to be the world’s tallest building which is up to 324 metres in its height. It is named after the famous French architect Gustave Eiffel. </p>
-<p>​        It is located at the ‘Champ-de-Mars’ with the restaurants and shops under the tower. There is a spire needle on the top of the tower, the tower are divided into three parts and the bottom width of the tower is 100 metres. The first and the second floor of the tower are provided with food to eat and place for take a rest. Moreover, there is a view platform on the third floor. </p>
-<p>​        Eiffel Tower is opened from 9:30 a.m. to 11:00 p.m. during Jan.1 to Jun.15 and Sept.3 to Dec.31. And it is opened from 9:00 a.m. to 12:00 p.m. during Jun.16 to Sept.2. We need to plan our time well when we are preparing for visiting as there are more than 270 million people visit there in average.</p>
-<p>​        The Eiffel Tower was built by Gustave Eiffel for the 100th year of the French freedom. At first, the Eiffel Tower was to be made in Barcelona, Spain, but the people of Barcelona did not want it. When the tower was built, it was only meant to be kept for 20 years. People did not like the Eiffel Tower and wanted it taken down. After the 20 years ,the tower became the property of Paris again. By this time, the city had learned that the tower could be used to help with communications. The military used the tower to communicate during battle.</p>
-<p>​        In conclusion, it is one of the world’s greatest building.</p>
+        <p>We focused on the application of the display LED screen for this time’s Arduino design.</p>
+<p>First of all, we using display screen to show the data which is measured by the ultrasonic wave sensor</p>
+<p><a href="https://imgchr.com/i/dNMLuR" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/21/dNMLuR.md.jpg" alt="dNMLuR.md.jpg"></a></p>
+<p><strong>We use code to realize that like below</strong></p>
+<p>#include “TM1637.h”</p>
+<p>#define CLK 2</p>
+<p>#define DIO 3</p>
+<p>int i;</p>
+<p>TM1637 tm1637(CLK,DIO);</p>
+<p>void setup() {</p>
+<p> Serial.begin(9600);</p>
+<p> pinMode(A0,INPUT);</p>
+<p> tm1637.init();</p>
+<p> tm1637.point(1);</p>
+<p> tm1637.set(BRIGHT_TYPICAL);</p>
+<p>}</p>
+<p>void loop() {</p>
+<p> Serial.println(analogRead(A0)/204.8);</p>
+<p> delay(1000);</p>
+<p> tm1637.display(0,int(analogRead(A0)/204.8)%10);</p>
+<p> tm1637.display(1,int((analogRead(A0)/204.8)*10)%10);</p>
+<p> tm1637.display(2,int((analogRead(A0)/204.8)*100)%10);</p>
+<p> tm1637.display(3,0);</p>
+<p> delay(500);</p>
+<p>}</p>
+<p>In order to make the code easier and clear to see we download the data from the data bank and invoking it as ‘tm1637’.</p>
+<p>The data shown on the screen on the photograph above means the ultrasonic wave sensor measure the data that it has a distance of 150 centimetre with the light above my head.</p>
+<p>Secondly, we tried to using or new unit which is a variable resistance to control a breathing light which means its light’s frequency of flash just like a breathing of a human. We used to think that it is such pretty cool technique until we done it ourselves.</p>
+<p><a href="https://imgchr.com/i/dNMbv9" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/21/dNMbv9.md.jpg" alt="dNMbv9.md.jpg"></a></p>
+<p>I was so surprised that we could use that simple code to make it come true.</p>
+<p>int ledPin = 9;</p>
+<p>#include “TM1637.h”</p>
+<p>#define CLK 2</p>
+<p>#define DIO 3</p>
+<p>int i;</p>
+<p>TM1637 tm1637(CLK,DIO);</p>
+<p>void setup() {</p>
+<p> pinMode(ledPin,OUTPUT);</p>
+<p> Serial.begin(9600);</p>
+<p> pinMode(A0,INPUT);</p>
+<p> tm1637.init();</p>
+<p> tm1637.point(1);</p>
+<p> tm1637.set(BRIGHT_TYPICAL);</p>
+<p>}</p>
+<p>void loop() {</p>
+<p> for(int fadeValue = 0;fadeValue &lt;= int(analogRead(A0))/(1024/255);fadeValue +=5){</p>
+<p>  analogWrite(ledPin,fadeValue);</p>
+<p>  delay(30);</p>
+<p> }</p>
+<p> for(int fadeValue = int(analogRead(A0))/(1024/255);fadeValue &gt;=0;fadeValue -=5){</p>
+<p>  analogWrite(ledPin,fadeValue);</p>
+<p>  delay(30);</p>
+<p> }</p>
+<p> Serial.println(analogRead(A0)/204.8);</p>
+<p> delay(1000);</p>
+<p> tm1637.display(0,int(analogRead(A0)/204.8)%10);</p>
+<p> tm1637.display(1,int((analogRead(A0)/204.8)*10)%10);</p>
+<p> tm1637.display(2,int((analogRead(A0)/204.8)*100)%10);</p>
+<p> tm1637.display(3,0);</p>
+<p> delay(500);</p>
+<p>}</p>
+<p>The code was added up with the brightness control by using the variable resistance. When we turn the switch to the left the brightness become lower and have opposite condition when turning it to the right.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/12/Eiffel-Tower/" data-id="ckcij9acq0000fkan42dn6iuh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/21/Arduino-Programme-IV/" data-id="cke44cq9i0000r8ancu9f5ih8" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Academic-research/" rel="tag">Academic research</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino-Programme/" rel="tag">Arduino Programme</a></li></ul>
 
     </footer>
   </div>
@@ -109,19 +169,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/07/24/The-Inevitable/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          The Inevitable
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/05/Connection-between-Economic-and-IELTS-writing/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/08/08/Arduino-Programme-III/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Connection between Economic and IELTS writing</div>
+      <div class="article-nav-title">Arduino Programme III</div>
     </a>
   
 </nav>
