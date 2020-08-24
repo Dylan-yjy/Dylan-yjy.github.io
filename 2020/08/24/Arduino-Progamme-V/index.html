@@ -5,23 +5,29 @@
   
 
   
-  <title>Arduino Programme IV | Hexo</title>
+  <title>Arduino Progamme V | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="We focused on the application of the display LED screen for this time’s Arduino design. First of all, we using display screen to show the data which is measured by the ultrasonic wave sensor  We use c">
+  <meta name="description" content="A whole new programme was started in this class which is the automatic handwriting machine.  Firstly, we built up several parts of basic structure.   We combined them together and then tight the up th">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Arduino Programme IV">
-<meta property="og:url" content="http://yoursite.com/2020/08/21/Arduino-Programme-IV/index.html">
+<meta property="og:title" content="Arduino Progamme V">
+<meta property="og:url" content="http://yoursite.com/2020/08/24/Arduino-Progamme-V/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="We focused on the application of the display LED screen for this time’s Arduino design. First of all, we using display screen to show the data which is measured by the ultrasonic wave sensor  We use c">
+<meta property="og:description" content="A whole new programme was started in this class which is the automatic handwriting machine.  Firstly, we built up several parts of basic structure.   We combined them together and then tight the up th">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s1.ax1x.com/2020/08/21/dNMLuR.md.jpg">
-<meta property="og:image" content="https://s1.ax1x.com/2020/08/21/dNMbv9.md.jpg">
-<meta property="article:published_time" content="2020-08-21T10:53:21.000Z">
-<meta property="article:modified_time" content="2020-08-21T10:56:38.756Z">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/24/dsOzM6.md.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/24/dsOOi9.md.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/24/dsOjR1.md.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/24/dsOXGR.md.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/24/dsOvxx.md.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/24/dsXSsK.md.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/24/dsXpqO.md.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/24/dsXCZD.md.jpg">
+<meta property="article:published_time" content="2020-08-24T12:30:35.000Z">
+<meta property="article:modified_time" content="2020-08-24T12:53:18.455Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="Arduino Programme">
+<meta property="article:tag" content="Arduino Progamme">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/21/dNMLuR.md.jpg">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/08/24/dsOzM6.md.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -70,10 +76,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Arduino-Programme-IV" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Arduino-Progamme-V" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/08/21/Arduino-Programme-IV/" class="article-date">
-  <time datetime="2020-08-21T10:53:21.000Z" itemprop="datePublished">2020-08-21</time>
+    <a href="/2020/08/24/Arduino-Progamme-V/" class="article-date">
+  <time datetime="2020-08-24T12:30:35.000Z" itemprop="datePublished">2020-08-24</time>
 </a>
     
   </div>
@@ -84,7 +90,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Arduino Programme IV
+      Arduino Progamme V
     </h1>
   
 
@@ -92,76 +98,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>We focused on the application of the display LED screen for this time’s Arduino design.</p>
-<p>First of all, we using display screen to show the data which is measured by the ultrasonic wave sensor</p>
-<p><a href="https://imgchr.com/i/dNMLuR" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/21/dNMLuR.md.jpg" alt="dNMLuR.md.jpg"></a></p>
-<p><strong>We use code to realize that like below</strong></p>
-<p>#include “TM1637.h”</p>
-<p>#define CLK 2</p>
-<p>#define DIO 3</p>
-<p>int i;</p>
-<p>TM1637 tm1637(CLK,DIO);</p>
-<p>void setup() {</p>
-<p> Serial.begin(9600);</p>
-<p> pinMode(A0,INPUT);</p>
-<p> tm1637.init();</p>
-<p> tm1637.point(1);</p>
-<p> tm1637.set(BRIGHT_TYPICAL);</p>
-<p>}</p>
-<p>void loop() {</p>
-<p> Serial.println(analogRead(A0)/204.8);</p>
-<p> delay(1000);</p>
-<p> tm1637.display(0,int(analogRead(A0)/204.8)%10);</p>
-<p> tm1637.display(1,int((analogRead(A0)/204.8)*10)%10);</p>
-<p> tm1637.display(2,int((analogRead(A0)/204.8)*100)%10);</p>
-<p> tm1637.display(3,0);</p>
-<p> delay(500);</p>
-<p>}</p>
-<p>In order to make the code easier and clear to see we download the data from the data bank and invoking it as ‘tm1637’.</p>
-<p>The data shown on the screen on the photograph above means the ultrasonic wave sensor measure the data that it has a distance of 150 centimetre with the light above my head.</p>
-<p>Secondly, we tried to using or new unit which is a variable resistance to control a breathing light which means its light’s frequency of flash just like a breathing of a human. We used to think that it is such pretty cool technique until we done it ourselves.</p>
-<p><a href="https://imgchr.com/i/dNMbv9" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/21/dNMbv9.md.jpg" alt="dNMbv9.md.jpg"></a></p>
-<p>I was so surprised that we could use that simple code to make it come true.</p>
-<p>int ledPin = 9;</p>
-<p>#include “TM1637.h”</p>
-<p>#define CLK 2</p>
-<p>#define DIO 3</p>
-<p>int i;</p>
-<p>TM1637 tm1637(CLK,DIO);</p>
-<p>void setup() {</p>
-<p> pinMode(ledPin,OUTPUT);</p>
-<p> Serial.begin(9600);</p>
-<p> pinMode(A0,INPUT);</p>
-<p> tm1637.init();</p>
-<p> tm1637.point(1);</p>
-<p> tm1637.set(BRIGHT_TYPICAL);</p>
-<p>}</p>
-<p>void loop() {</p>
-<p> for(int fadeValue = 0;fadeValue &lt;= int(analogRead(A0))/(1024/255);fadeValue +=5){</p>
-<p>  analogWrite(ledPin,fadeValue);</p>
-<p>  delay(30);</p>
-<p> }</p>
-<p> for(int fadeValue = int(analogRead(A0))/(1024/255);fadeValue &gt;=0;fadeValue -=5){</p>
-<p>  analogWrite(ledPin,fadeValue);</p>
-<p>  delay(30);</p>
-<p> }</p>
-<p> Serial.println(analogRead(A0)/204.8);</p>
-<p> delay(1000);</p>
-<p> tm1637.display(0,int(analogRead(A0)/204.8)%10);</p>
-<p> tm1637.display(1,int((analogRead(A0)/204.8)*10)%10);</p>
-<p> tm1637.display(2,int((analogRead(A0)/204.8)*100)%10);</p>
-<p> tm1637.display(3,0);</p>
-<p> delay(500);</p>
-<p>}</p>
-<p>The code was added up with the brightness control by using the variable resistance. When we turn the switch to the left the brightness become lower and have opposite condition when turning it to the right.</p>
+        <p>A whole new programme was started in this class which is the automatic handwriting machine.</p>
+<p><a href="https://imgchr.com/i/dsOzM6" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/24/dsOzM6.md.jpg" alt="dsOzM6.md.jpg"></a></p>
+<p>Firstly, we built up several parts of basic structure. </p>
+<p><a href="https://imgchr.com/i/dsOOi9" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/24/dsOOi9.md.jpg" alt="dsOOi9.md.jpg"></a></p>
+<p>We combined them together and then tight the up them with nails like the picture.</p>
+<p><a href="https://imgchr.com/i/dsOjR1" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/24/dsOjR1.md.jpg" alt="dsOjR1.md.jpg"></a></p>
+<p>We found out that when we tried to put the nail into some hole with serrate it could be a quite tough task for us. The nail is so tight that we nearly destroy the nail with too much force in order to tight pieces together.</p>
+<p><a href="https://imgchr.com/i/dsOXGR" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/24/dsOXGR.md.jpg" alt="dsOXGR.md.jpg"></a></p>
+<p>Then, we installed the servo on the board to make the machine’s pen able to move in different directions.</p>
+<p>[<a href="https://imgchr.com/i/dsOvxx" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/24/dsOvxx.md.jpg" alt="dsOvxx.md.jpg"></a>](<a href="https://imgchr.com/i/dsOvxx" target="_blank" rel="noopener">https://imgchr.com/i/dsOvxx</a>)</p>
+<p>Finally, we combined all these units together to make a basic model of our work. </p>
+<p><a href="https://imgchr.com/i/dsXSsK" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/24/dsXSsK.md.jpg" alt="dsXSsK.md.jpg"></a>](<a href="https://imgchr.com/i/dsXSsK" target="_blank" rel="noopener">https://imgchr.com/i/dsXSsK</a>)</p>
+<p>It is so scared for me that I broke one of a small combination as its size doesn’t fit the others well. When it happened, I thought that how bad the quality of our material is. But, later, I thought that maybe I am so impatient and I used too large force.</p>
+<p>[<a href="https://imgchr.com/i/dsXpqO" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/24/dsXpqO.md.jpg" alt="dsXpqO.md.jpg"></a>](<a href="https://imgchr.com/i/dsXpqO" target="_blank" rel="noopener">https://imgchr.com/i/dsXpqO</a>)</p>
+<p><a href="https://imgchr.com/i/dsXCZD" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2020/08/24/dsXCZD.md.jpg" alt="dsXCZD.md.jpg"></a></p>
+<p>We tested for the servo after we complete the model, just like the picture above.</p>
+<p>I really learnt a lot from this class</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/21/Arduino-Programme-IV/" data-id="cke44cq9i0000r8ancu9f5ih8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/24/Arduino-Progamme-V/" data-id="cke8iuibl0000xwan28rt3vt4" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino-Programme/" rel="tag">Arduino Programme</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Arduino-Progamme/" rel="tag">Arduino Progamme</a></li></ul>
 
     </footer>
   </div>
@@ -169,19 +130,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/08/24/Arduino-Progamme-V/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Arduino Progamme V
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/08/08/Arduino-Programme-III/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/08/21/Arduino-Programme-IV/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Arduino Programme III</div>
+      <div class="article-nav-title">Arduino Programme IV</div>
     </a>
   
 </nav>
